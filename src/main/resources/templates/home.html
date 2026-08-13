@@ -17,6 +17,26 @@
         <h2>Welcome!</h2>
 
         <p>You have successfully logged in.</p>
+        <form action="/api/files/upload"
+            method="post"
+            enctype="multipart/form-data">
+
+            <input type="hidden"
+                name="_csrf"
+                th:value="${_csrf.token}">
+
+            <div class="mb-3">
+                <input type="file"
+                    name="file"
+                    class="form-control"
+                    required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Upload File
+            </button>
+
+        </form>
 
         <form th:action="@{/logout}" method="post">
             <button class="btn btn-danger">
